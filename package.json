@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "./src/app/"
+    "src/app/"
   ],
   "types": "./src/app/index.d.ts",
   "keywords": [
