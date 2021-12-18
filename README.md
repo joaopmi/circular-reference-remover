@@ -131,7 +131,8 @@ Result:
 
 ## Documentation
 
-- Function ```remover(src:any,options?:remover.Options``` - Returns a copy of the ```src``` object with its inner circular references setted to ```null``` or ```undefined```.
+- Function ```remover(src:any,options?:remover.Options``` - Returns a copy of the ```src``` object with its inner circular references setted to ```null``` or ```undefined```. If the ```src``` is ```null``` or ```undefined``` return the respective value.
+
 - ```remover.Options``` - 
 - - ```setUndefined?:boolean``` - If true set references as ```undefined``` instead of ```null```
 ## Contributing
