@@ -1,6 +1,6 @@
 {
   "name": "circular-reference-remover",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Remove objects inner circular references",
   "main": "./src/app/index.js",
   "scripts": {
