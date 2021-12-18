@@ -15,10 +15,10 @@ npm i circular-reference-remover
 ```typescript
 import remover from "./circular-remover";
 
-let a:any = {nome:'circular a'};
-let b:any = {nome:'circular b'};
-let c:any = {nome:'circular c'};
-let d:any = {nome:'not circular'};
+let a:any = {name:'circular a'};
+let b:any = {name:'circular b'};
+let c:any = {name:'circular c'};
+let d:any = {name:'not circular'};
 
 a.a = a;
 a.b = b;
@@ -54,77 +54,77 @@ Result:
 
 ```json
 {
-  "nome": "circular a",
+  "name": "circular a",
   "a": null,
   "b": {
-    "nome": "circular b",
+    "name": "circular b",
     "b": null,
     "a": null,
     "c": {
-      "nome": "circular c",
+      "name": "circular c",
       "c": null,
       "a": null,
       "b": null,
       "d": {
-        "nome": "not circular"
+        "name": "not circular"
       }
     },
     "d": {
-      "nome": "not circular"
+      "name": "not circular"
     }
   },
   "c": {
-    "nome": "circular c",
+    "name": "circular c",
     "c": null,
     "a": null,
     "b": {
-      "nome": "circular b",
+      "name": "circular b",
       "b": null,
       "a": null,
       "c": null,
       "d": {
-        "nome": "not circular"
+        "name": "not circular"
       }
     },
     "d": {
-      "nome": "not circular"
+      "name": "not circular"
     }
   },
   "d": {
-    "nome": "not circular"
+    "name": "not circular"
   }
 }
 
 ------------------
 
 {
-  "nome": "circular a",
+  "name": "circular a",
   "b": {
-    "nome": "circular b",
+    "name": "circular b",
     "c": {
-      "nome": "circular c",
+      "name": "circular c",
       "d": {
-        "nome": "not circular"
+        "name": "not circular"
       }
     },
     "d": {
-      "nome": "not circular"
+      "name": "not circular"
     }
   },
   "c": {
-    "nome": "circular c",
+    "name": "circular c",
     "b": {
-      "nome": "circular b",
+      "name": "circular b",
       "d": {
-        "nome": "not circular"
+        "name": "not circular"
       }
     },
     "d": {
-      "nome": "not circular"
+      "name": "not circular"
     }
   },
   "d": {
-    "nome": "not circular"
+    "name": "not circular"
   }
 }
 ```
