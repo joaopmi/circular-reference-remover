@@ -1,6 +1,6 @@
 "use strict";
 function remover(src, options) {
-    const weakReferenceValue = new WeakRef(options && options.setUndefined ? undefined : null);
+    const weakReferenceValue = new WeakRef(options && options.setUndefined ? { value: undefined } : { value: null });
     function internalRemover(target, src, references) {
         for (const key in src) {
             const srcValue = src[key];
@@ -12,7 +12,7 @@ function remover(src, options) {
                 let referenceFound = false;
                 for (const reference of references) {
                     if (reference === srcValue) {
-                        target[key] = weakReferenceValue;
+                        target[key] = weakReferenceValue.deref().value;
                         referenceFound = true;
                         break;
                     }

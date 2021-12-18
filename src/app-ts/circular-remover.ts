@@ -1,7 +1,7 @@
 export = remover;
 
 function remover(src:any,options?:remover.Options) {
-    const weakReferenceValue:WeakRef<any> = new WeakRef<any>(options && options.setUndefined ? undefined : null);
+    const weakReferenceValue:WeakRef<any> = new WeakRef<any>(options && options.setUndefined ? {value:undefined} : {value:null});
     function internalRemover(target: any, src: any, references: any[]) {
         for (const key in src) {
             const srcValue = src[key];
@@ -13,7 +13,7 @@ function remover(src:any,options?:remover.Options) {
                 let referenceFound = false;
                 for (const reference of references) {
                     if (reference === srcValue) {
-                        target[key] = weakReferenceValue;
+                        target[key] = weakReferenceValue.deref().value;
                         referenceFound = true;
                         break;
                     }
