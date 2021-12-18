@@ -1,0 +1,24 @@
+{
+  "name": "circular-reference-remover",
+  "version": "1.0.0",
+  "description": "Remove objects inner circular references",
+  "main": "./src/app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "./src/app/"
+  ],
+  "types": "./src/app/index.d.ts",
+  "keywords": [
+    "circular-reference",
+    "circular",
+    "reference",
+    "json",
+    "stringify",
+    "removal",
+    "remover"
+  ],
+  "author": "João",
+  "license": "ISC"
+}
