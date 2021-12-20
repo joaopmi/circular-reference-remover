@@ -1,3 +1,1 @@
-import remover from "./circular-remover";
-
-export = remover;
+export { RemoverOptions, remove, removeSync } from "./circular-remover";

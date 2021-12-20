@@ -1,7 +1,7 @@
 {
   "name": "circular-reference-remover",
   "version": "1.0.6",
-  "description": "Remove objects inner circular references",
+  "description": "Removes the inner circular references from objects",
   "main": "./src/app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

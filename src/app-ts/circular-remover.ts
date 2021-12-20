@@ -1,9 +1,26 @@
-export = remover;
+export function remove(src: any, options?: RemoverOptions): Promise<any> {
+    if (undefined === src) return Promise.resolve(undefined);
+    else if (null === src) return Promise.resolve(null);
 
-function remover(src:any,options?:remover.Options) {
-    if(undefined === src) return undefined;
-    else if(null === src) return null;
-    const weakReferenceValue:WeakRef<any> = new WeakRef<any>(options && options.setUndefined ? {value:undefined} : {value:null});
+    return new Promise<any>(
+        (res: (value: any | PromiseLike<any>) => void) => {
+            res(
+                referenceRemover(src, options)
+            );
+        }
+    );
+
+}
+
+export function removeSync(src: any, options?: RemoverOptions): any {
+    if (undefined === src) return undefined;
+    else if (null === src) return null;
+    return referenceRemover(src, options);
+}
+
+function referenceRemover(src: any, options?: RemoverOptions): any {
+    const weakReferenceValue: WeakRef<any> = new WeakRef<any>(options && options.setUndefined ? { value: undefined } : { value: null });
+
     function internalRemover(target: any, src: any, references: any[]) {
         for (const key in src) {
             const srcValue = src[key];
@@ -34,14 +51,12 @@ function remover(src:any,options?:remover.Options) {
         }
         return target;
     }
-    return internalRemover({},src,[src]);
+    return internalRemover({}, src, [src]);
 }
 
-declare namespace remover {
-    interface Options {
-        /**If true, set references as undefined instead of null 
-         * @default false
-        */
-        setUndefined?: boolean;
-    }
+export interface RemoverOptions {
+    /**If true, set references as undefined instead of null 
+     * @default false
+    */
+    setUndefined?: boolean;
 }

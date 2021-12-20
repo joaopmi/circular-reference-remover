@@ -1,9 +1,25 @@
 "use strict";
-function remover(src, options) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.removeSync = exports.remove = void 0;
+function remove(src, options) {
+    if (undefined === src)
+        return Promise.resolve(undefined);
+    else if (null === src)
+        return Promise.resolve(null);
+    return new Promise((res) => {
+        res(referenceRemover(src, options));
+    });
+}
+exports.remove = remove;
+function removeSync(src, options) {
     if (undefined === src)
         return undefined;
     else if (null === src)
         return null;
+    return referenceRemover(src, options);
+}
+exports.removeSync = removeSync;
+function referenceRemover(src, options) {
     const weakReferenceValue = new WeakRef(options && options.setUndefined ? { value: undefined } : { value: null });
     function internalRemover(target, src, references) {
         for (const key in src) {
@@ -38,4 +54,3 @@ function remover(src, options) {
     }
     return internalRemover({}, src, [src]);
 }
-module.exports = remover;
