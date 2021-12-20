@@ -135,7 +135,7 @@ Result:
 
 - Function ```remove(src:any,options?:remover.Options):Promise<any>``` - Returns a Promise that resolves a copy of the ```src``` object with its inner circular references setted to ```null``` or ```undefined```. If the ```src``` is ```null``` or ```undefined``` return a Promise with the respective value.
 
-- Function ```removeSync(src:any,options?:remover.Options):any``` - Returns a copy of the ```src``` object with its inner circular references setted to ```null``` or ```undefined```. If the ```src``` is ```null``` or ```undefined``` return a the respective value.
+- Function ```removeSync(src:any,options?:remover.Options):any``` - Returns a copy of the ```src``` object with its inner circular references setted to ```null``` or ```undefined```. If the ```src``` is ```null``` or ```undefined``` return the respective value.
 
 - ```remover.Options``` - 
 - - ```setUndefined?:boolean``` - If true set references as ```undefined``` instead of ```null```
