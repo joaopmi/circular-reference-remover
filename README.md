@@ -137,7 +137,7 @@ Result:
 
 - Function ```removeSync(src:any,options?:remover.Options):any``` - Returns a copy of the ```src``` object with its inner circular references setted to ```null``` or ```undefined```. If the ```src``` is ```null``` or ```undefined``` return the respective value.
 
-- ```remover.Options``` - 
+- ```RemoverOptions``` - 
 - - ```setUndefined?:boolean``` - If true set references as ```undefined``` instead of ```null```
 ## Contributing
 Pull requests are welcome, please open an issue first to discuss what you would like to change.
