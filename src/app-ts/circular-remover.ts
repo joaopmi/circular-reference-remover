@@ -4,9 +4,11 @@ export function remove(src: any, options?: RemoverOptions): Promise<any> {
 
     return new Promise<any>(
         (res: (value: any | PromiseLike<any>) => void) => {
-            res(
-                referenceRemover(src, options)
-            );
+            setTimeout(() => {
+                res(
+                    referenceRemover(src, options)
+                );
+            }, 0)
         }
     );
 

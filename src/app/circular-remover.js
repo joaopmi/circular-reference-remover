@@ -7,7 +7,9 @@ function remove(src, options) {
     else if (null === src)
         return Promise.resolve(null);
     return new Promise((res) => {
-        res(referenceRemover(src, options));
+        setTimeout(() => {
+            res(referenceRemover(src, options));
+        }, 0);
     });
 }
 exports.remove = remove;
