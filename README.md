@@ -13,7 +13,7 @@ npm i circular-reference-remover
 
 ## Usage
 ```typescript
-import remover from "./circular-remover";
+import {remove} from "./circular-remover";
 
 let a:any = {name:'circular a'};
 let b:any = {name:'circular b'};
@@ -33,20 +33,22 @@ c.a = a;
 c.b = b;
 c.d = d;
 
-console.log(
-    JSON.stringify(remover(a),null,2)
-);
+
+remove(a).then((result:any)=>{
+    console.log(
+        JSON.stringify(result,null,2)
+    );
+})
 
 console.log('\n------------------\n');
 
 //WITH setUndefined TRUE
-console.log(
-    JSON.stringify(
-        remover(a, { setUndefined: true })
-        , null
-        , 2
-    )
-);
+remove(a,{setUndefined:true}).then((result:any)=>{
+    console.log(
+        JSON.stringify(result,null,2)
+    );
+})
+
 
 ```
 
