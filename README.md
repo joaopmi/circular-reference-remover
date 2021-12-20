@@ -1,5 +1,5 @@
 # Info
-Simple logger for textChannels.
+Removes the inner circular references from objects
 
 
 - [GITHUB](https://github.com/joaopmi/circular-reference-remover) 
@@ -131,7 +131,9 @@ Result:
 
 ## Documentation
 
-- Function ```remover(src:any,options?:remover.Options``` - Returns a copy of the ```src``` object with its inner circular references setted to ```null``` or ```undefined```. If the ```src``` is ```null``` or ```undefined``` return the respective value.
+- Function ```remove(src:any,options?:remover.Options):Promise<any>``` - Returns a Promise that resolves a copy of the ```src``` object with its inner circular references setted to ```null``` or ```undefined```. If the ```src``` is ```null``` or ```undefined``` return a Promise with the respective value.
+
+- Function ```removeSync(src:any,options?:remover.Options):any``` - Returns a copy of the ```src``` object with its inner circular references setted to ```null``` or ```undefined```. If the ```src``` is ```null``` or ```undefined``` return a the respective value.
 
 - ```remover.Options``` - 
 - - ```setUndefined?:boolean``` - If true set references as ```undefined``` instead of ```null```
